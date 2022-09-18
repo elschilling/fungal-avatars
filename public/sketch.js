@@ -161,7 +161,7 @@ function sketch_pattern2(p) {
 function sketch_waves(p) {
   let yPos = 0
   let waveWidth = width
-  let waveHeight = height - 40
+  let waveHeight = height - 36
 
   p.setup = function() {
     p.createCanvas(waveWidth,waveHeight, "WEBGL")
@@ -175,7 +175,7 @@ function sketch_waves(p) {
     p.stroke(255, 204, 0)
     yPos = yPos - 1
     if (yPos < 0) {
-      yPos = waveHeight
+      yPos = waveHeight + 10
     }
     p.line(0, yPos, waveWidth, yPos)
     // p.noFill()
@@ -183,7 +183,7 @@ function sketch_waves(p) {
     p.noFill()
     for (let i = 0; i <= num; i++) {
       // p.vertex(i*waveWidth/num, yPos)
-      p.vertex(i*waveWidth/num,waveHeight*100/100*Math.sin(i/6)*100)
+      p.vertex(i*waveWidth/num + yPos*2*Math.sin(i/100) ,waveHeight*1/20*Math.sin(i/6)*5+1*fxrand()*5+30+fxrand()*10)
     }
     p.endShape()
     // p.noFill()
