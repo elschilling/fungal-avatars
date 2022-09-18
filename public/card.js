@@ -24,6 +24,7 @@
 // this code writes the values to the DOM as an example
 // const container = document.createElement("div")
 const hash = document.querySelector('.hash')
+const canva = document.querySelector('canvas')
 const imgname = document.querySelector('.imgname')
 const hue = document.querySelector('.hue')
 // const containerDiv = document.querySelector('.container')
@@ -34,6 +35,8 @@ const face = document.querySelector('.face')
 const back = document.querySelector('.back')
 const borda = document.querySelector('.borda')
 const subcontainer_back = document.querySelector('.subcontainer_back')
+
+const pattern2 = document.getElementById('pattern2')
 
 card.addEventListener("click", function (e) {
   card.classList.toggle('is-flipped');
@@ -53,6 +56,8 @@ face.style.backgroundColor = "hsl("+healerHue+",20%,30%)"
 back.style.backgroundColor = "hsl("+healerHue+",20%,30%)"
 subcontainer_back.style.backgroundColor = "hsl("+healerHue+",20%,5%)"
 subcontainer_back.classList.add(mask)
+pattern2.classList.add('round')
+// canva.classList.add(round)
 // borda.style.backgroundColor = "hsl("+healerHue+",20%,30%)";
 back.style.opacity = "0.9"
 hue.style.color = "hsl("+healerHue+",20%,30%)"
@@ -141,6 +146,9 @@ let fungiverses = [
 let fungiverse = fungiverses[Math.floor(fxrand()*fungiverses.length)]
 
 fungiverseH.innerHTML = fungiverse
+
+
+
 
 window.$fxhashFeatures = {
   "Avatar Image": healerAgeString + healer + '.png',

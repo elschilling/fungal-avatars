@@ -127,30 +127,31 @@ function sketch_pattern(p) {
 
 }
 
+const num = 400 + fxrand()*100
+const period = fxrand()*10+fxrand()*100
+const width = 100
+const height = 100
+let dX = 0
+
 function sketch_pattern2(p) {
   p.setup = function() {
-    p.createCanvas(60,60, "WEBGL")
+    p.createCanvas(100,100, "WEBGL")
     p.colorMode("HSB")
     p.angleMode("DEGREES")
     p.strokeWeight(1)
   }  
   p.draw = function() {
-    p.background(0,0,0)
-    pLen = fD/100
-    drawFlower(fD-100*fxrand(), pLen+500*fxrand(), p)
-    if (!reverse) {
-      fD = fD + .1
-      pLen = pLen + .1
-    } else {
-      fD = fD - .1
-      pLen = pLen - .1 
+    p.background(1,1,0)
+    p.stroke(100,100,100)
+    p.noFill()
+    p.beginShape()
+    for (let i = 0; i <= num; i++) {
+      p.vertex(i*width/num + dX/fxrand()*4,height/2+50*Math.sin(i/6)*100)
     }
-    if (fD > 15) {
-      fxpreview()
-      reverse = true
-    }
-    if (fD < 10) {
-      reverse = false
+    p.endShape()
+    dX = dX + 1
+    if (dX > 10) {
+      dX = 0
     }
   }
 
