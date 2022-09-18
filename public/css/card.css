@@ -208,7 +208,6 @@ img {
 
 canvas {
   border-radius: 50%;
-  opacity: 0.5;
   top: 70px;
   left: 20px;
   position: absolute;
@@ -218,6 +217,8 @@ canvas {
 
 #pattern {
   border-radius: 50%;
+  opacity: 0.5;
+  border-radius: 50%;
   bottom: 190px;
   right: 100px;
   position: absolute;
@@ -226,7 +227,8 @@ canvas {
 }
 
 #pattern2 {
-  opacity: 0.9;
+  border-radius: 50%;
+  opacity: 0.5;
   /* border-radius: 50%; */
   right: 150px;
   position: absolute;
@@ -259,4 +261,18 @@ canvas {
   background: black;
   width: 10px;
   height: 15px;
+}
+
+#waves {
+  opacity: 0.5;
+  border-radius: 0%;
+  bottom: 150px;
+  /* right: 100px; */
+  position: absolute;
+  z-index: 50;
+  visibility: visible;
+  /* background: black; */
+  width: 350px;
+  height: 100px;
+  z-index: 350;
 }

@@ -99,7 +99,6 @@ imgname.innerHTML = healerAgeString + healer + '.png'
 img.classList.add(mask)
 
 img.style.filter = "hue-rotate(45deg);"
-
 var style = document.createElement('style');
 style.innerHTML = `
 #fungihealer {
@@ -147,10 +146,12 @@ let fungiverse = fungiverses[Math.floor(fxrand()*fungiverses.length)]
 
 fungiverseH.innerHTML = fungiverse
 
-
-
+let waveNum = 100 + fxrand()*1000
+let wavePeriod = fxrand()*10+fxrand()*100
 
 window.$fxhashFeatures = {
+  "Wave number": waveNum,
+  "Wave period": wavePeriod,
   "Avatar Image": healerAgeString + healer + '.png',
   "Avatar Hue": healerHue,
   "Fungi Verse": fungiverse,

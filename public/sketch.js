@@ -98,6 +98,7 @@ function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
 
+
 function sketch_pattern(p) {
   p.setup = function() {
     p.createCanvas(60,60, "WEBGL")
@@ -127,10 +128,10 @@ function sketch_pattern(p) {
 
 }
 
-const num = 400 + fxrand()*100
+const num = 100 + fxrand()*1000
 const period = fxrand()*10+fxrand()*100
-const width = 100
-const height = 100
+let width = 100
+let height = 100
 let dX = 0
 
 function sketch_pattern2(p) {
@@ -157,9 +158,52 @@ function sketch_pattern2(p) {
 
 }
 
+function sketch_waves(p) {
+  let yPos = 0
+  let waveWidth = width
+  let waveHeight = height - 40
+
+  p.setup = function() {
+    p.createCanvas(waveWidth,waveHeight, "WEBGL")
+    // p.colorMode("HSB")
+    // p.angleMode("DEGREES")
+    p.strokeWeight(1)
+    p.frameRate(30)
+  }  
+  p.draw = function() {
+    p.background('black')
+    p.stroke(255, 204, 0)
+    yPos = yPos - 1
+    if (yPos < 0) {
+      yPos = waveHeight
+    }
+    p.line(0, yPos, waveWidth, yPos)
+    // p.noFill()
+    p.beginShape()
+    p.noFill()
+    for (let i = 0; i <= num; i++) {
+      // p.vertex(i*waveWidth/num, yPos)
+      p.vertex(i*waveWidth/num,waveHeight*100/100*Math.sin(i/6)*100)
+    }
+    p.endShape()
+    // p.noFill()
+    // p.beginShape()
+    // for (let i = 0; i <= num; i++) {
+      // p.vertex(i*width/num + dX/fxrand()*4,height/2+50*Math.sin(i/6)*100)
+      // p.vertex(i,(height-50)/2)
+    // }
+    // dX = dX + 1
+    // if (dX > 10) {
+    //   dX = 0
+    // }
+  }
+
+}
+
 
 
 
 new p5(sketch_flower1, "card")
 new p5(sketch_pattern, "pattern")
 new p5(sketch_pattern2, "pattern2")
+new p5(sketch_waves, "waves")
