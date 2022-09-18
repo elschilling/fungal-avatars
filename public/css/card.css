@@ -32,6 +32,8 @@ img {
 }
 
 .card {
+  border-radius: 36px;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
