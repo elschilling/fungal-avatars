@@ -38,15 +38,14 @@ let hueG = myArray[1].slice(0,2)
 let hueB = myArray[2].slice(0,2)
 sketchHue = cardElem.style.backgroundColor
 
-function sketch_flower(p) {
+function sketch_flower1(p) {
   // console.log('p', p)
   p.setup = function() {
     p.createCanvas(60,60, "WEBGL")
     p.colorMode("HSB")
     p.angleMode("DEGREES")
     p.strokeWeight(1)
-  }
-  
+  }  
   p.draw = function() {
     p.background(0,0,0)
     pLen = fD
@@ -68,7 +67,6 @@ function sketch_flower(p) {
   }
 
 }
-
 function drawFlower(fD, pLen, p) {
   // console.log(fD)
   p.beginShape("POINTS")
@@ -100,6 +98,67 @@ function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
 
+function sketch_pattern(p) {
+  p.setup = function() {
+    p.createCanvas(60,60, "WEBGL")
+    p.colorMode("HSB")
+    p.angleMode("DEGREES")
+    p.strokeWeight(1)
+  }  
+  p.draw = function() {
+    p.background(0,0,0)
+    pLen = fD
+    drawFlower(fD*pLen, pLen/fD, p)
+    if (!reverse) {
+      fD = fD + .1
+      pLen = pLen + .1
+    } else {
+      fD = fD - .1
+      pLen = pLen - .1 
+    }
+    if (fD > 15) {
+      fxpreview()
+      reverse = true
+    }
+    if (fD < 10) {
+      reverse = false
+    }
+  }
+
+}
+
+function sketch_pattern2(p) {
+  p.setup = function() {
+    p.createCanvas(60,60, "WEBGL")
+    p.colorMode("HSB")
+    p.angleMode("DEGREES")
+    p.strokeWeight(1)
+  }  
+  p.draw = function() {
+    p.background(0,0,0)
+    pLen = fD/100
+    drawFlower(fD-100*fxrand(), pLen+500*fxrand(), p)
+    if (!reverse) {
+      fD = fD + .1
+      pLen = pLen + .1
+    } else {
+      fD = fD - .1
+      pLen = pLen - .1 
+    }
+    if (fD > 15) {
+      fxpreview()
+      reverse = true
+    }
+    if (fD < 10) {
+      reverse = false
+    }
+  }
+
+}
 
 
-new p5(sketch_flower, "card")
+
+
+new p5(sketch_flower1, "card")
+new p5(sketch_pattern, "pattern")
+new p5(sketch_pattern2, "pattern2")

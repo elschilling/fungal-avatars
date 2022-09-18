@@ -49,16 +49,17 @@ let healerAge = Math.ceil(fxrand()*100)
 let healerHue = Math.ceil(fxrand()*360)
 let mask = "mask_wave" + Math.ceil(fxrand()*4)
 hue.innerHTML = "h" + healerAge
-face.style.backgroundColor = "hsl("+healerHue+",20%,30%)";
-back.style.backgroundColor = "hsl("+healerHue+",20%,30%)";
-subcontainer_back.style.backgroundColor = "hsl("+healerHue+",20%,5%)";
+face.style.backgroundColor = "hsl("+healerHue+",20%,30%)"
+back.style.backgroundColor = "hsl("+healerHue+",20%,30%)"
+subcontainer_back.style.backgroundColor = "hsl("+healerHue+",20%,5%)"
 subcontainer_back.classList.add(mask)
 // borda.style.backgroundColor = "hsl("+healerHue+",20%,30%)";
-back.style.opacity = "0.9";
-hue.style.opacity = "0.8";
-hash.style.opacity = "1";
-hash.style.color = "white";
-content.style.color = "hsl("+healerHue+",70%,50%)";
+back.style.opacity = "0.9"
+hue.style.color = "hsl("+healerHue+",20%,30%)"
+hue.style.opacity = "0.8"
+hash.style.opacity = "1"
+hash.style.color = "white"
+content.style.color = "hsl("+healerHue+",70%,50%)"
 
 if (healerAge < 18) {
   avatar = 'woman'

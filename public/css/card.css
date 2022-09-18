@@ -12,19 +12,21 @@
 }
 
 .imgname {
+  background: rgba(1,1,1, .5);
   transform: translate(150px, 150px) rotate(-90deg);
   font-weight: bold;
   position: absolute;
   z-index: 5;
   font-size: 15px;
-  /* bottom: 30px; */
+  padding: 10px;
+  border-radius: 10px;
   text-align: center;
 
 }
 
 img {
   z-index: 2;
-  border: solid 15px rgba(0,0,0,.5);
+  border: solid 10px rgba(0,0,0,1);
   width: 100%;
   border-radius: 10px;
 }
@@ -43,9 +45,7 @@ img {
 .card:hover {
   filter: drop-shadow(0 0 2em rgba(1,1,1,.8));
 }
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
-}
+
 
 .card_inner {
   width: 100%;
@@ -72,6 +72,7 @@ img {
   justify-content: center;
 }
 .subcontainer {
+  box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 1);
   display: flex;
   justify-content: center;
 }
@@ -108,11 +109,13 @@ img {
 }
 
 .hue {
-  padding: 0px;
-  bottom: 40px;
-  left: 15px;
+  position: absolute;
+  z-index: 10;
+  padding: 20px;
+  bottom: 50px;
+  left: 20px;
   border-radius: 15px;
-  background: rgba(1, 1, 1, .5);
+  background: rgba(1, 1, 1, .8);
   opacity: 0.1;
 }
 .borda {
@@ -169,32 +172,34 @@ img {
 
 .mask_wave1 {
   --mask: 
-    conic-gradient(from 135deg at top,#0000,#000 1deg 89deg,#0000 90deg) top/30.00px 51% repeat-x,
-    conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/30.00px 51% repeat-x;
-  -webkit-mask: var(--mask);
-          mask: var(--mask);
+  conic-gradient(from 135deg at top,#0000,#000 1deg 89deg,#0000 90deg) top/10.00px 51% repeat-x,
+  conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/10.00px 51% repeat-x;
+-webkit-mask: var(--mask);
+        mask: var(--mask);
 }
 
 .mask_wave2 {
-  --mask: radial-gradient(25px at 50% 25px,#0000 97%,#000) 50% -25px/ 46.25px 100%;
+  --mask: 
+    linear-gradient(0deg,#0000 16px,#000 0) 0 8px,
+    radial-gradient(8px,#000 98%,#0000) 50%/14.80px 16px repeat space;
   -webkit-mask: var(--mask);
           mask: var(--mask);
 }
 
 .mask_wave3 {
   --mask: 
-    linear-gradient(0deg,#0000 50px,#000 0) 0 25px,
-    radial-gradient(25px,#000 98%,#0000) 50%/46.25px 50px repeat space;
+    linear-gradient(0deg,#0000 16px,#000 0) 0 8px,
+    radial-gradient(8px,#000 98%,#0000) 50%/14.80px 16px repeat space;
   -webkit-mask: var(--mask);
           mask: var(--mask);
 }
 
 .mask_wave4 {
   --mask: 
-    radial-gradient(10px at 25% 0   ,#0000 98%,#000) 50% 10px/40px 51% repeat-x,
-    radial-gradient(10px at 75% 50% ,#000 99%,#0000 101%) top/40px 20px repeat-x,
-    radial-gradient(10px at 75% 100%,#0000 98%,#000) 50% calc(100% - 10px)/40px 51% repeat-x,
-    radial-gradient(10px at 25% 50% ,#000 99%,#0000 101%) bottom/40px 20px repeat-x;
+    radial-gradient(4px at 25% 0   ,#0000 98%,#000) 50% 4px/16px 51% repeat-x,
+    radial-gradient(4px at 75% 50% ,#000 99%,#0000 101%) top/16px 8px repeat-x,
+    radial-gradient(4px at 75% 100%,#0000 98%,#000) 50% calc(100% - 4px)/16px 51% repeat-x,
+    radial-gradient(4px at 25% 50% ,#000 99%,#0000 101%) bottom/16px 8px repeat-x;
   -webkit-mask: var(--mask);
           mask: var(--mask);
 }
@@ -203,6 +208,23 @@ canvas {
   border-radius: 50%;
   top: 70px;
   left: 20px;
+  position: absolute;
+  z-index: 50;
+  visibility: visible;
+}
+
+#pattern {
+  border-radius: 50%;
+  bottom: 190px;
+  right: 100px;
+  position: absolute;
+  z-index: 50;
+  visibility: visible;
+}
+
+#pattern2 {
+  border-radius: 50%;
+  right: 100px;
   position: absolute;
   z-index: 50;
   visibility: visible;
