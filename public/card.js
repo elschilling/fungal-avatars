@@ -1,7 +1,7 @@
 
 // these are the variables you can use as inputs to your algorithms
-console.log(fxhash)   // the 64 chars hex number fed to your algorithm
-console.log(fxrand()) // deterministic PRNG function, use it instead of Math.random()
+// console.log(fxhash)   // the 64 chars hex number fed to your algorithm
+// console.log(fxrand()) // deterministic PRNG function, use it instead of Math.random()
 
 // note about the fxrand() function 
 // when the "fxhash" is always the same, it will generate the same sequence of
@@ -24,6 +24,7 @@ console.log(fxrand()) // deterministic PRNG function, use it instead of Math.ran
 // this code writes the values to the DOM as an example
 // const container = document.createElement("div")
 const hash = document.querySelector('.hash')
+const imgname = document.querySelector('.imgname')
 const hue = document.querySelector('.hue')
 // const containerDiv = document.querySelector('.container')
 const fungiverseH = document.querySelector('.fungiverse')
@@ -48,7 +49,6 @@ let healerAge = Math.ceil(fxrand()*100)
 let healerHue = Math.ceil(fxrand()*360)
 let mask = "mask_wave" + Math.ceil(fxrand()*4)
 hue.innerHTML = "h" + healerAge
-console.log(face)
 face.style.backgroundColor = "hsl("+healerHue+",20%,30%)";
 back.style.backgroundColor = "hsl("+healerHue+",20%,30%)";
 subcontainer_back.style.backgroundColor = "hsl("+healerHue+",20%,5%)";
@@ -88,8 +88,8 @@ else {
 // container.innerText = healer + ' ' + healerHue + ' ' + healerAgeString + ' ' + healerAge
 // document.body.prepend(container)
 let img = document.getElementById('fungihealer')
-console.log(img)
 img.src = './assets/healers/' + healerAgeString + healer + '.png'
+imgname.innerHTML = healerAgeString + healer + '.png'
 img.classList.add(mask)
 
 img.style.filter = "hue-rotate(45deg);"
@@ -141,10 +141,9 @@ let fungiverse = fungiverses[Math.floor(fxrand()*fungiverses.length)]
 
 fungiverseH.innerHTML = fungiverse
 
-
-console.log(fungiverse)
-
 window.$fxhashFeatures = {
+  "Avatar Image": healerAgeString + healer + '.png',
   "Avatar Hue": healerHue,
-  "Fungi Verse": fungiverse
+  "Fungi Verse": fungiverse,
+  "Card border": mask
 }
