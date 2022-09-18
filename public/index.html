@@ -39,10 +39,54 @@
 
     <!-- if you need to import js scripts do it here -->
   </head>
+
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/card.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+
+
   <body>
 
+    <div class="card data-tilt">
+      <div class="card_inner">
+        <!-- <div class="borda wave"></div> -->
+        <div class="face front">
+          <div class="content">
+            <h1>FUNGAL AVATARS</h1>
+            <div class="subcontainer">
+              <h2 class="hue"></h2>
+              <img src="" alt="" id="fungihealer" class="mask_zigzag">
+              <p class="hash"></p>
+            </div>
+          </div>
+        </div>
+        <div class="face back">
+          <div class="subcontainer_back">
+            <h3 class="fungiverse"></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/card.js"></script>
+    <script type="module" src="./js/vanilla-tilt.js"></script>
+    <script type="module">
+      VanillaTilt.init(document.querySelector(".card"), {
+        max: 25,
+        speed: 400,
+        glare: true,
+        "max-glare": .5,
+      });
+      
+      //It also supports NodeList
+      // VanillaTilt.init(document.querySelectorAll(".card"));
+    </script>
+
     <!-- WEBPACK will inject the bundle.js here -->
-    <script type="module" src="./index.js"></script>
+    <!-- <script type="module" src="./index.js"></script> -->
 
   </body>
 </html>
