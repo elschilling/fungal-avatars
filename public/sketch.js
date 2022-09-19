@@ -58,7 +58,6 @@ function sketch_flower1(p) {
       pLen = pLen - .1 
     }
     if (fD > 15) {
-      fxpreview()
       reverse = true
     }
     if (fD < 10) {
@@ -118,7 +117,6 @@ function sketch_pattern(p) {
       pLen = pLen - .1 
     }
     if (fD > 15) {
-      fxpreview()
       reverse = true
     }
     if (fD < 10) {

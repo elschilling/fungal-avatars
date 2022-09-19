@@ -23,6 +23,32 @@
 
 // this code writes the values to the DOM as an example
 // const container = document.createElement("div")
+
+let femaleAudioTracks = [
+  './assets/audio/MariaSabinaYouAreTheMedicine.m4a',
+  './assets/audio/MondoLoopsForestKingdom/Ancient Map [Master].mp3',
+  './assets/audio/MondoLoopsForestKingdom/Desert Winds [Master].mp3',
+  './assets/audio/MondoLoopsForestKingdom/Lofi Lullaby [Master] .mp3',
+  './assets/audio/MondoLoopsForestKingdom/Luthien_s Song [Master] .mp3',
+  './assets/audio/MondoLoopsForestKingdom/Overgrown Piano [Master] .mp3',
+  './assets/audio/MondoLoopsForestKingdom/Savoured Breath [Master] .mp3',
+  './assets/audio/MondoLoopsForestKingdom/The Lasting Memory [ Master ].mp3',
+  './assets/audio/MondoLoopsForestKingdom/The Road Goes Even On [Master] .mp3',
+  './assets/audio/MondoLoopsForestKingdom/Visions in the swamp [Master] .mp3',
+]
+let maleAudioTracks = [
+  './assets/audio/TerenceMcKenna  aks.m4a',
+  './assets/audio/SergeyCheremisinovRequiem/Sergey Cheremisinov - Bhopal.mp3',
+  './assets/audio/SergeyCheremisinovRequiem/Sergey Cheremisinov - Chernobyl.mp3',
+  './assets/audio/SergeyCheremisinovRequiem/Sergey Cheremisinov - Fukushima.mp3',
+  './assets/audio/SergeyCheremisinovRequiem/Sergey Cheremisinov - Garbadge Patch.mp3',
+  './assets/audio/SergeyCheremisinovRequiem/Sergey Cheremisinov - Kamchatka.mp3',
+  './assets/audio/SergeyCheremisinovRequiem/Sergey Cheremisinov - Mayak.mp3',
+  './assets/audio/SergeyCheremisinovRequiem/Sergey Cheremisinov - Norilsk.mp3',
+  './assets/audio/SergeyCheremisinovRequiem/Sergey Cheremisinov - The Only Home.mp3',
+]
+
+
 const hash = document.querySelector('.hash')
 const canva = document.querySelector('canvas')
 const imgname = document.querySelector('.imgname')
@@ -40,12 +66,12 @@ const pattern2 = document.getElementById('pattern2')
 
 card.addEventListener("click", function (e) {
   card.classList.toggle('is-flipped');
+  handleStart()
 });
 
 
-// console.log(containerDiv)
 hash.innerHTML = fxhash
-let healer, avatar, healerAgeString
+let healer, avatar, healerAgeString, audioTrack
 
 // RANDOM VALUES
 let healerAge = Math.ceil(fxrand()*100)
@@ -70,42 +96,44 @@ if (healerAge < 18) {
   avatar = 'woman'
   healerAgeString = 'young-maria'
   healer = Math.ceil(fxrand()*2)
+  audioTrack = femaleAudioTracks[Math.floor(fxrand()*femaleAudioTracks.length)]
 }
 else if (healerAge >= 18 && healerAge < 54) {
   avatar = 'woman'
   healerAgeString = 'maria'
   healer = Math.ceil(fxrand()*4)
+  audioTrack = femaleAudioTracks[Math.floor(fxrand()*femaleAudioTracks.length)]
 }
 else if (healerAge >= 54 && healerAge <= 90) {
   avatar = 'man'
   healerAgeString = 'terence'
   healer = Math.ceil(fxrand()*4)
+  audioTrack = maleAudioTracks[Math.floor(fxrand()*maleAudioTracks.length)]
 } 
 else if (healerAge > 90 && healerAge <= 95) {
   avatar = 'bee-faced-mushroom'
   healerAgeString = 'bee-faced-mushroom'
   healer = ''
+  audioTrack = femaleAudioTracks[Math.floor(fxrand()*femaleAudioTracks.length)]
 } 
 else {
   avatar = 'stone-mushroom'
   healerAgeString = 'stone-mushroom'
   healer = ''
+  audioTrack = maleAudioTracks[Math.floor(fxrand()*maleAudioTracks.length)]
 }
-// container.innerText = healer + ' ' + healerHue + ' ' + healerAgeString + ' ' + healerAge
-// document.body.prepend(container)
 let img = document.getElementById('fungihealer')
 img.src = './assets/healers/' + healerAgeString + healer + '.png'
 imgname.innerHTML = healerAgeString + healer + '.png'
 img.classList.add(mask)
 
-img.style.filter = "hue-rotate(45deg);"
-var style = document.createElement('style');
-style.innerHTML = `
+var styleElem = document.createElement('style');
+styleElem.innerHTML = `
 #fungihealer {
 filter: hue-rotate(${healerHue}deg);
 }
 `;
-document.head.appendChild(style);
+document.head.appendChild(styleElem);
 
 let fungiverses = [
   `I am the ${avatar} I was just born.`,
@@ -143,11 +171,51 @@ let fungiverses = [
 ]
 
 let fungiverse = fungiverses[Math.floor(fxrand()*fungiverses.length)]
+let audioElement
 
 fungiverseH.innerHTML = fungiverse
 
 let waveNum = 100 + fxrand()*1000
 let wavePeriod = fxrand()*10+fxrand()*100
+
+audioElement = new Audio(audioTrack)
+
+let play = true
+
+document.body.addEventListener('keydown', (e) =>{
+  let duration = audioElement.duration
+  if (e.code == 'KeyS') {
+    if (play) {
+      audioElement.play()
+      console.log('playing audio',duration)
+      play = false
+    } else {
+      audioElement.pause()
+      console.log('pausing audio',duration)
+      play = true
+    }
+  }
+})
+
+function startup() {
+  const el = document.getElementById('canvas');
+  console.log('Initialized.');
+}
+
+function handleStart() {
+  if (play) {
+    audioElement.play()
+    console.log('playing audio')
+    play = false
+  } else {
+    audioElement.pause()
+    console.log('pausing audio')
+    play = true
+  }
+}
+
+document.body.addEventListener("DOMContentLoaded", startup);
+
 
 window.$fxhashFeatures = {
   "Wave number": waveNum,
@@ -157,3 +225,12 @@ window.$fxhashFeatures = {
   "Fungi Verse": fungiverse,
   "Card border": mask
 }
+
+console.log('============================\nFUNGAL AVATARS vol. I\n============================\n')
+console.log('Avatar Image: ' + healerAgeString + healer + '.png')
+console.log('Audio: ' + audioTrack)
+console.log('Avatar Hue:' + healerHue)
+console.log('Fungiverse:' + fungiverse)
+console.log('Card border: ' + mask)
+console.log('Wave number: ' + waveNum)
+console.log('Wave period: ' + wavePeriod)
