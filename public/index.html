@@ -44,6 +44,9 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/card.css">
 
+  <script src="https://unpkg.com/hydra-synth"></script>
+
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
@@ -53,6 +56,7 @@
 
     <div class="card data-tilt">
       <div class="card_inner" id="card">
+        <canvas id="hydraCanvas"></canvas>
         <div id="pattern"></div>
         <div id="pattern2"></div>
         <div id="waves"></div>
@@ -97,6 +101,15 @@
     <script src="./sketch.js"></script>
     <!-- WEBPACK will inject the bundle.js here -->
     <!-- <script type="module" src="./index.js"></script> -->
+    <script>
+      // create a new hydra-synth instance
+      var hydra = new Hydra({
+        canvas: document.getElementById("hydraCanvas"),
+        detectAudio: false
+      })
+       osc(10, 0.1, 0.8).rotate(0, 0.1).kaleid().color(-1, 1).out()
+    </script>
+
 
   </body>
 </html>

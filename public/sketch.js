@@ -128,8 +128,8 @@ function sketch_pattern(p) {
 
 }
 
-const num = 100 + fxrand()*1000
-const period = fxrand()*10+fxrand()*100
+const num = 50 + fxrand()*1000
+const period = fxrand()*100+100
 let width = 100
 let height = 100
 let dX = 0
@@ -147,7 +147,7 @@ function sketch_pattern2(p) {
     p.noFill()
     p.beginShape()
     for (let i = 0; i <= num; i++) {
-      p.vertex(i*width/num + dX/fxrand()*4,height/2+50*Math.sin(i/6)*100)
+      p.vertex(i*width/num + dX/fxrand()*4,height/2+1*Math.sin(i/6)*1000)
     }
     p.endShape()
     dX = dX + 1
