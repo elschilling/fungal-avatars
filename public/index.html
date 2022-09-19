@@ -99,17 +99,17 @@
     </script>
     <script src="./p5.min.js"></script>
     <script src="./sketch.js"></script>
+    <script src="./hydra.js"></script>
+    <!-- <audio controls id="audio1">
+      <source src="./assets/audio/TerenceMcKennaSpeaks.m4a" type="audio/mpeg">
+    </audio>
+    <audio controls id="audio2">
+      <source src="./assets/audio/MariaSabinaYouAreTheMedicine.m4a" type="audio/mpeg">
+    </audio> -->
+      <!-- Your browser does not support the audio tag. -->
+    <script src="./audio.js"></script>
     <!-- WEBPACK will inject the bundle.js here -->
     <!-- <script type="module" src="./index.js"></script> -->
-    <script>
-      // create a new hydra-synth instance
-      var hydra = new Hydra({
-        canvas: document.getElementById("hydraCanvas"),
-        detectAudio: false
-      })
-       osc(10, 0.1, 0.8).rotate(0, 0.1).kaleid().color(-1, 1).out()
-    </script>
-
 
   </body>
 </html>
