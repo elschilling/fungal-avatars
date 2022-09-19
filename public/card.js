@@ -24,28 +24,20 @@
 // this code writes the values to the DOM as an example
 // const container = document.createElement("div")
 
-let femaleAudioTracks = [
-  './assets/audio/MariaSabinaYouAreTheMedicine.m4a',
-  './assets/audio/MondoLoopsForestKingdom/Ancient Map [Master].mp3',
-  './assets/audio/MondoLoopsForestKingdom/Desert Winds [Master].mp3',
-  './assets/audio/MondoLoopsForestKingdom/Lofi Lullaby [Master] .mp3',
-  './assets/audio/MondoLoopsForestKingdom/Luthien_s Song [Master] .mp3',
-  './assets/audio/MondoLoopsForestKingdom/Overgrown Piano [Master] .mp3',
-  './assets/audio/MondoLoopsForestKingdom/Savoured Breath [Master] .mp3',
-  './assets/audio/MondoLoopsForestKingdom/The Lasting Memory [ Master ].mp3',
-  './assets/audio/MondoLoopsForestKingdom/The Road Goes Even On [Master] .mp3',
-  './assets/audio/MondoLoopsForestKingdom/Visions in the swamp [Master] .mp3',
-]
+// let femaleAudioTracks = [
+//   './assets/audio/MondoLoopsForestKingdom/Ancient Map [Master].mp3',
+//   './assets/audio/MondoLoopsForestKingdom/Desert Winds [Master].mp3',
+//   './assets/audio/MondoLoopsForestKingdom/Lofi Lullaby [Master] .mp3',
+//   './assets/audio/MondoLoopsForestKingdom/Luthien_s Song [Master] .mp3',
+//   './assets/audio/MondoLoopsForestKingdom/Overgrown Piano [Master] .mp3',
+//   './assets/audio/MondoLoopsForestKingdom/Savoured Breath [Master] .mp3',
+//   './assets/audio/MondoLoopsForestKingdom/The Lasting Memory [ Master ].mp3',
+//   './assets/audio/MondoLoopsForestKingdom/The Road Goes Even On [Master] .mp3',
+//   './assets/audio/MondoLoopsForestKingdom/Visions in the swamp [Master] .mp3',
+// ]
 let maleAudioTracks = [
-  './assets/audio/TerenceMcKenna  aks.m4a',
-  './assets/audio/SergeyCheremisinovRequiem/Sergey Cheremisinov - Bhopal.mp3',
-  './assets/audio/SergeyCheremisinovRequiem/Sergey Cheremisinov - Chernobyl.mp3',
-  './assets/audio/SergeyCheremisinovRequiem/Sergey Cheremisinov - Fukushima.mp3',
-  './assets/audio/SergeyCheremisinovRequiem/Sergey Cheremisinov - Garbadge Patch.mp3',
-  './assets/audio/SergeyCheremisinovRequiem/Sergey Cheremisinov - Kamchatka.mp3',
-  './assets/audio/SergeyCheremisinovRequiem/Sergey Cheremisinov - Mayak.mp3',
-  './assets/audio/SergeyCheremisinovRequiem/Sergey Cheremisinov - Norilsk.mp3',
-  './assets/audio/SergeyCheremisinovRequiem/Sergey Cheremisinov - The Only Home.mp3',
+  './assets/audio/TerenceMcKennaSpeaks.m4a',
+  './assets/audio/MariaSabinaYouAreTheMedicine.m4a',
 ]
 
 
@@ -96,13 +88,13 @@ if (healerAge < 18) {
   avatar = 'woman'
   healerAgeString = 'young-maria'
   healer = Math.ceil(fxrand()*2)
-  audioTrack = femaleAudioTracks[Math.floor(fxrand()*femaleAudioTracks.length)]
+  audioTrack = maleAudioTracks[Math.floor(fxrand()*maleAudioTracks.length)]
 }
 else if (healerAge >= 18 && healerAge < 54) {
   avatar = 'woman'
   healerAgeString = 'maria'
   healer = Math.ceil(fxrand()*4)
-  audioTrack = femaleAudioTracks[Math.floor(fxrand()*femaleAudioTracks.length)]
+  audioTrack = maleAudioTracks[Math.floor(fxrand()*maleAudioTracks.length)]
 }
 else if (healerAge >= 54 && healerAge <= 90) {
   avatar = 'man'
@@ -114,7 +106,7 @@ else if (healerAge > 90 && healerAge <= 95) {
   avatar = 'bee-faced-mushroom'
   healerAgeString = 'bee-faced-mushroom'
   healer = ''
-  audioTrack = femaleAudioTracks[Math.floor(fxrand()*femaleAudioTracks.length)]
+  audioTrack = maleAudioTracks[Math.floor(fxrand()*maleAudioTracks.length)]
 } 
 else {
   avatar = 'stone-mushroom'
