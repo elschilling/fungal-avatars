@@ -35,17 +35,16 @@
 //   './assets/audio/MondoLoopsForestKingdom/The Road Goes Even On [Master] .mp3',
 //   './assets/audio/MondoLoopsForestKingdom/Visions in the swamp [Master] .mp3',
 // ]
-let maleAudioTracks = [
+
+let audioTracks = [
   './assets/audio/TerenceMcKennaSpeaks.m4a',
   './assets/audio/MariaSabinaYouAreTheMedicine.m4a',
 ]
-
 
 const hash = document.querySelector('.hash')
 const canva = document.querySelector('canvas')
 const imgname = document.querySelector('.imgname')
 const hue = document.querySelector('.hue')
-// const containerDiv = document.querySelector('.container')
 const fungiverseH = document.querySelector('.fungiverse')
 const content = document.querySelector('.content')
 const card = document.querySelector('.card_inner')
@@ -88,31 +87,31 @@ if (healerAge < 18) {
   avatar = 'woman'
   healerAgeString = 'young-maria'
   healer = Math.ceil(fxrand()*2)
-  audioTrack = maleAudioTracks[Math.floor(fxrand()*maleAudioTracks.length)]
+  audioTrack = audioTracks[Math.floor(fxrand()*audioTracks.length)]
 }
 else if (healerAge >= 18 && healerAge < 54) {
   avatar = 'woman'
   healerAgeString = 'maria'
   healer = Math.ceil(fxrand()*4)
-  audioTrack = maleAudioTracks[Math.floor(fxrand()*maleAudioTracks.length)]
+  audioTrack = audioTracks[Math.floor(fxrand()*audioTracks.length)]
 }
 else if (healerAge >= 54 && healerAge <= 90) {
   avatar = 'man'
   healerAgeString = 'terence'
   healer = Math.ceil(fxrand()*4)
-  audioTrack = maleAudioTracks[Math.floor(fxrand()*maleAudioTracks.length)]
+  audioTrack = audioTracks[Math.floor(fxrand()*audioTracks.length)]
 } 
 else if (healerAge > 90 && healerAge <= 95) {
   avatar = 'bee-faced-mushroom'
   healerAgeString = 'bee-faced-mushroom'
   healer = ''
-  audioTrack = maleAudioTracks[Math.floor(fxrand()*maleAudioTracks.length)]
+  audioTrack = audioTracks[Math.floor(fxrand()*audioTracks.length)]
 } 
 else {
   avatar = 'stone-mushroom'
   healerAgeString = 'stone-mushroom'
   healer = ''
-  audioTrack = maleAudioTracks[Math.floor(fxrand()*maleAudioTracks.length)]
+  audioTrack = audioTracks[Math.floor(fxrand()*audioTracks.length)]
 }
 let img = document.getElementById('fungihealer')
 img.src = './assets/healers/' + healerAgeString + healer + '.png'
@@ -213,7 +212,7 @@ window.$fxhashFeatures = {
   "Wave number": waveNum,
   "Wave period": wavePeriod,
   "Avatar Image": healerAgeString + healer + '.png',
-  "Avatar Hue": healerHue,
+  "Avatar Hue": healerAge,
   "Fungi Verse": fungiverse,
   "Card border": mask
 }
@@ -221,7 +220,7 @@ window.$fxhashFeatures = {
 console.log('============================\nFUNGAL AVATARS vol. I\n============================\n')
 console.log('Avatar Image: ' + healerAgeString + healer + '.png')
 console.log('Audio: ' + audioTrack)
-console.log('Avatar Hue:' + healerHue)
+console.log('Avatar Hue:' + healerAge)
 console.log('Fungiverse:' + fungiverse)
 console.log('Card border: ' + mask)
 console.log('Wave number: ' + waveNum)
